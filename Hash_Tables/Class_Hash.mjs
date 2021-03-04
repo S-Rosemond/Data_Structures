@@ -22,7 +22,7 @@ class HashTable {
     if (this.KeyMap[idx] === undefined) {
       this.KeyMap[idx] = [[key, value]];
     } else {
-      if (duplicate) return;
+      if (duplicate) return "Duplicate Key";
       this.KeyMap[idx].push([key, value]);
     }
   }
