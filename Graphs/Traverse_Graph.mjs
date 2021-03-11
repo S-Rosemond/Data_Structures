@@ -18,6 +18,25 @@ class TGraph extends Graph {
 
     return this.resultList;
   }
+  DFSIterative(vertex) {
+    const stack = [];
+    stack.push(vertex);
+
+    while (stack.length > 0) {
+      let node = stack.pop();
+
+      if (!this.visitedList[node]) {
+        this.visitedList[node] = true;
+        this.resultList.push(node);
+
+        for (let el of this.adjacencyList[node]) {
+          if (!this.visitedList[el] && !stack.includes(el)) stack.push(el);
+        }
+      }
+    }
+
+    return this.resultList;
+  }
 }
 
 const myGraph = new TGraph();
@@ -41,5 +60,6 @@ myGraph.addEdge("Z", "A");
 
 console.log(myGraph.print());
 
-const result = myGraph.DFSRecursion("A");
-console.log(result);
+// const result = myGraph.DFSRecursion("A");
+const iterative = myGraph.DFSIterative("A");
+console.log(iterative);
