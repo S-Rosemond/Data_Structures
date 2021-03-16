@@ -61,4 +61,5 @@ const bfsResult = myGraph.bfsTraversal("A");
 console.log(bfsResult); // expected result: ['A', 'B', 'C', 'Z', 'D', 'E', 'F']
 
 // SLICE.REVERSE on array traverse in reverse -- tip :
-//  array.slice().reverse().forEach(etc)
+//  array.slice(position).reverse().forEach(etc)
+// context: if using an array instead of stack for bfs -- Colt's solution used array
